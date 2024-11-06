@@ -6,27 +6,21 @@ public class Project2 {
 
 	public static void main(String[] args) {
 		
-		ReadData readData = new ReadData();
-
+		File file = new File("students.txt");
 		
-		ArrayList<Student> studentList = new ArrayList<>(ReadData.getStudentList());
-		
-		ReadData.printStudents();
-		ReadData.setHonorSocietyThreshold();
+		ReadData readData = new ReadData(file);		
+		ArrayList<Student> studentList = new ArrayList<>(readData.getStudentList());
 		
 		
+		readData.printStudents();	
 		
 		double studentGpaAverage = ReadData.getAverageGpa();
 		double honorSocietyThreshold = ReadData.getHonorSocietyThreshold();
 		
-		System.out.println("\nAVG: " +  String.format("%.2f",studentGpaAverage) );
+		
+		System.out.println("\nAVG GPA of students: " +  String.format("%.2f",studentGpaAverage) );
 		System.out.println("Honor Society Threshold: " + String.format("%.2f",honorSocietyThreshold));
-		ReadData.printElibibleHonorSocietStudents();
-
+		ReadData.printEligibleHonorSocietyStudents();
 	}
 
 }
-
-
-// questions to ask: if the override methods can use something like a spread operator to copy the original method and add on to it. 
-// if the way i am importing the file matches the description for the assignment
