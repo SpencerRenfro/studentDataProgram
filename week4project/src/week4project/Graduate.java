@@ -1,5 +1,16 @@
 package week4project;
 
+
+/*
+Spencer Renfro
+CMSC 215 7382
+Date: 11-06-2024
+ 
+The Graduate class extends the Student class and adds logic to the eligibleForHonorSociety method, 
+requiring the student to be seeking a master's degree. It also overrides the toString method to 
+include the degree the student is pursuing. This is accomplished by overriding the super method 
+in the Student class.
+*/
 public class Graduate extends Student {
 
 	private String degreeSeeking;
@@ -20,13 +31,6 @@ public class Graduate extends Student {
 
 	@Override
 	public String toString() {
-		StringBuilder string = new StringBuilder();
-
-		string.append("Name: " + name + " GPA: " + String.format("%.2f", qualityPoints / creditHours)
-				+ " Degree Seeking: " + degreeSeeking);
-
-		String studentString = string.toString();
-
-		return studentString;
+		return super.toString() + " Degree Seeking: " + degreeSeeking;
 	}
 }

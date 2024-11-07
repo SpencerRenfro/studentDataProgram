@@ -6,18 +6,32 @@ import java.io.FileNotFoundException;
 
 import java.util.ArrayList;
 
+/*
+Spencer Renfro
+CMSC 215 7382
+Date: 11-06-2024
+ 
+This class takes a file object as a parameter, tries to create a pathway to the file, if it does exist 
+the class proceeds to iterate over the properly formatted data, creates 4 ArrayLists, 
+calculates the average gpa of all students, sets the threshold for honor society, and iterates over the student list
+using the method in the Student class eligibleForHonorSociety to add eligible students to honorSocietyStudentList
+
+*/
+
 public class ReadData {
 	private Scanner input;
-
+	
+	//ArrayLists
 	private static ArrayList<Student> totalStudentList = new ArrayList<>();
 	private static ArrayList<Student> graduateList = new ArrayList<>();
 	private static ArrayList<Student> undergraduateList = new ArrayList<>();
+	private static ArrayList<Student> honorSocietyStudentList = new ArrayList<>();
 
 	private static double honorSocietyThreshold;
 	private static double totalGpaSum;
 	private static double totalStudentGpaAverage;
 
-	private static ArrayList<Student> honorSocietyStudentList = new ArrayList<>();
+
 
 	public ReadData(File file) {
 		
@@ -26,6 +40,8 @@ public class ReadData {
 			input = new Scanner(file);
 		} catch (FileNotFoundException e) {
 			System.err.println("File not found: " + e.getMessage());
+			System.err.println("\nProgram will now terminate...");
+			
 			System.exit(1);
 		}
 

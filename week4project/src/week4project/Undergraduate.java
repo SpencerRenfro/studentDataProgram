@@ -1,5 +1,15 @@
 package week4project;
 
+/*
+Spencer Renfro
+CMSC 215 7382
+Date: 11-06-2024
+ 
+This Undergraduate class extends the Student class and ands more logic for specifics on undergraduate students
+and their eligibility for honor society and adds to the toString method adding the year of the student. This is done
+by overriding the super methods. 
+*/
+
 public class Undergraduate extends Student {
 	private String year;
 
@@ -21,13 +31,6 @@ public class Undergraduate extends Student {
 
 	@Override
 	public String toString() {
-		StringBuilder string = new StringBuilder();
-
-		string.append(
-				"Name: " + name + " GPA: " + String.format("%.2f", qualityPoints / creditHours) + " Year: " + year);
-
-		String studentString = string.toString();
-
-		return studentString;
+	    return super.toString() + " Year: " + year;
 	}
 }
